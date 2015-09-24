@@ -13,7 +13,6 @@ angular.module( "Player" )
         PlayerSrvc.getAll( $routeParams )
             .then( function ( data )
             {
-                console.log( "ctrl", data );
                 ctrl.list = data;
             },
             function ( err )
