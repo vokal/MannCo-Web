@@ -1,21 +1,25 @@
-<h4>Leaderboard</h4>
+<div class="column-wrap">
+    <h3>Leaderboard</h3>
 
-<br>
-<div>
-    <button type="button" data-ng-click="player.sortValue = '-POINTS'">Points</button>
-    <button type="button" data-ng-click="player.sortValue = '-KILLS'">Kills</button>
-    <button type="button" data-ng-click="player.sortValue = '-Death'">Deaths</button>
+    <br>
+    <div>
+        <select id="sort-select" data-ng-model="player.sortValue">
+            <option value="-POINTS">Points</option>
+            <option value="-KILLS">Kills</option>
+            <option value="-Death">Deaths</option>
+        </select>
+    </div>
+    <br>
+    <strong data-ng-show="player.sortValue === '-POINTS'">Points</strong>
+    <strong data-ng-show="player.sortValue === '-KILLS'">Kills</strong>
+    <strong data-ng-show="player.sortValue === '-Death'">Deaths</strong>
+    <br>
+    <ul>
+        <li class="card" data-ng-repeat="user in player.list | orderBy:player.sortValue ">
+            <span data-ng-show="player.sortValue === '-POINTS'">{{ user.POINTS }}:</span>
+            <span data-ng-show="player.sortValue === '-KILLS'">{{ user.KILLS }}:</span>
+            <span data-ng-show="player.sortValue === '-Death'">{{ user.Death }}:</span>
+            {{ user.NAME }}
+        </li>
+    </ul>
 </div>
-<br>
-<strong data-ng-show="player.sortValue === '-POINTS'">Points</strong>
-<strong data-ng-show="player.sortValue === '-KILLS'">Kills</strong>
-<strong data-ng-show="player.sortValue === '-Death'">Deaths</strong>
-<br>
-<ul>
-    <li data-ng-repeat="user in player.list | orderBy:player.sortValue ">
-        <span data-ng-show="player.sortValue === '-POINTS'">{{ user.POINTS }}:</span>
-        <span data-ng-show="player.sortValue === '-KILLS'">{{ user.KILLS }}:</span>
-        <span data-ng-show="player.sortValue === '-Death'">{{ user.Death }}:</span>
-        {{ user.NAME }}
-    </li>
-</ul>
