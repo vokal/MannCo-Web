@@ -16,7 +16,9 @@ angular.module( "App", [
 
         $routeProvider
             .when( "/", {
-                templateUrl: "modules/_app/templates/home.html"
+                templateUrl: "modules/player/templates/leaderboard.html",
+                controller: "LeaderboardCtrl",
+                controllerAs: "player"
             } )
             .otherwise( {
                 redirectTo: "/"
