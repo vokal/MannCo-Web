@@ -1,13 +1,24 @@
 /* Application Styles */
-
+@import "source/modules/_app/styles/_variables";
+@import "source/modules/_app/styles/_fonts";
 @import (inline) "source/components/css-reset/reset.css";
 
-/* -- Variables */
-
-@light: #FFFFFF;
-@dark:  #000000;
-@grey:  #E7E7E7;
+@import "source/modules/_app/styles/_layout";
+@import "source/modules/_app/styles/_typography";
 
 /* -- Modules */
-
+@import "source/modules/_app/styles/_navigation";
 @import "source/modules/player/styles/_player";
+
+
+* {
+    box-sizing: border-box;
+}
+
+[data-ng-click] {
+    cursor: pointer;
+}
+
+main {
+    padding: @padding-l;
+}
