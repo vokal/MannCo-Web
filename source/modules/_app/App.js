@@ -6,13 +6,11 @@ angular.module( "App", [
     "ngSanitize",
     "ngMessages",
     "ngAnimate",
-    "vokal.API",
-    "vokal.RouteAuth"
+    "vokal.API"
 ] )
 
-.config( [ "$routeProvider", "$locationProvider", "$sceDelegateProvider", "LoginPath", "RouteAuthProvider",
-
-    function ( $routeProvider, $locationProvider, $sceDelegateProvider, LoginPath, RouteAuthProvider )
+.config( [ "$routeProvider", "$locationProvider", "$sceDelegateProvider",
+    function ( $routeProvider, $locationProvider, $sceDelegateProvider )
     {
         "use strict";
 
@@ -29,10 +27,6 @@ angular.module( "App", [
         $sceDelegateProvider.resourceUrlWhitelist(
             [ "self" ]
         );
-
-        RouteAuthProvider.setRedirectPath( LoginPath );
     }
 
-] )
-
-.constant( "LoginPath", "/path/to/login/" );
+] );
