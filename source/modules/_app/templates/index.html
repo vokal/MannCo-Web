@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html lang="en-US" data-ng-app="App" data-ng-controller="Site as site">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title data-ng-bind="site.meta.title ? site.meta.title : 'Web Application'">Web Application</title>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0, width=device-width">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <link rel="stylesheet" href="/build/project.css">
+
+        <base href="/">
+
+        <meta property="description" content="{{ site.meta.description }}">
+
+        <meta property="al:ios:url" content="{{ site.meta.appScheme }}://{{ site.meta.appPath }}"
+            data-ng-if="site.meta.appScheme && site.meta.appPath">
+        <meta property="al:ios:app_store_id" content="{{ site.meta.appStoreId }}"
+            data-ng-if="site.meta.appStoreId">
+        <meta property="al:ios:app_name" content="{{ site.meta.appStoreName }}"
+            data-ng-if="site.meta.appStoreName">
+        <meta property="al:android:url" content="{{ site.meta.appScheme }}://{{ site.meta.appPath }}"
+            data-ng-if="site.meta.appScheme && site.meta.appPath">
+        <meta property="al:android:app_name" content="{{ site.meta.playStoreName }}"
+            data-ng-if="site.meta.playStoreName">
+        <meta property="al:android:package" content="{{ site.meta.playStorePackage }}"
+            data-ng-if="site.meta.playStorePackage">
+        <meta property="al:web:url" content="{{ site.meta.currentUrl }}"
+            data-ng-if="site.meta.currentUrl">
+
+        <link rel="alternate" href="{{ site.meta.appScheme }}://{{ site.meta.playStorePackage }}/{{ site.meta.appPath }}"
+            data-ng-if="site.meta.appScheme && site.meta.playStorePackage && site.meta.appPath">
+
+    </head>
+
+    <body>
+
+        <header>
+            {{ site.title }}
+        </header>
+
+        <main data-ng-view></main>
+
+        <footer>
+            Copyright
+        </footer>
+
+        <% if( useDist ) { %>
+        <script src="/build/dist.js" defer></script>
+        <% } else { %>
+        <script src="/build/angular.js"></script>
+        <script src="/build/components.js"></script>
+        <% if( useSource ) { %>
+        <!-- include: "type": "js", "files": "build/modules/*/*.js" -->
+        <!-- include: "type": "js", "files": "build/modules/*/*/*.js" -->
+        <% } else { %>
+        <script src="/build/project.js"></script>
+        <% } %>
+        <script src="/build/templates.js"></script>
+        <% } %>
+
+    </body>
+
+</html>
