@@ -6,19 +6,19 @@ angular.module( "App", [
     "ngSanitize",
     "ngMessages",
     "ngAnimate",
-    "vokal.API",
-    "vokal.RouteAuth"
+    "vokal.API"
 ] )
 
-.config( [ "$routeProvider", "$locationProvider", "$sceDelegateProvider", "LoginPath", "RouteAuthProvider",
-
-    function ( $routeProvider, $locationProvider, $sceDelegateProvider, LoginPath, RouteAuthProvider )
+.config( [ "$routeProvider", "$locationProvider", "$sceDelegateProvider",
+    function ( $routeProvider, $locationProvider, $sceDelegateProvider )
     {
         "use strict";
 
         $routeProvider
             .when( "/", {
-                templateUrl: "modules/_app/templates/home.html"
+                templateUrl: "modules/player/templates/leaderboard.html",
+                controller: "LeaderboardCtrl",
+                controllerAs: "player"
             } )
             .otherwise( {
                 redirectTo: "/"
@@ -29,10 +29,6 @@ angular.module( "App", [
         $sceDelegateProvider.resourceUrlWhitelist(
             [ "self" ]
         );
-
-        RouteAuthProvider.setRedirectPath( LoginPath );
     }
 
-] )
-
-.constant( "LoginPath", "/path/to/login/" );
+] );
