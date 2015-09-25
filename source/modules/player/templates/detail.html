@@ -1,1 +1,67 @@
-<p>Player Detail Page: <span class="player-id">{{ player.id }}</span></p>
+<div class="column-wrap">
+    <h2>{{ detail.player.NAME }}</h2>
+    <span>{{ detail.player.STEAMID }}</span>
+    <br>
+    <section id="player-detail" class="card">
+        <div class="player-icon">
+            <img data-ng-src="{{ detail.player | defaultIcon:'200' }}"
+                alt="{{ detail.player.NAME }} Player icon">
+        </div>
+        <span class="player-kpi">KDR: {{ [ detail.player.KILLS, detail.player.Death ] | ratio }}</span>
+        <span class="player-kpi">Points: {{ detail.player.POINTS }}</span>
+        <span class="player-kpi">Kills: {{ detail.player.KILLS }}</span>
+        <span class="player-kpi">Deaths: {{ detail.player.Death }}</span>
+    </section>
+
+    <h3>Class Stats</h3>
+    <section class="card">
+        <ul id="class-list">
+            <li data-ng-repeat="class in detail.classMap | orderBy:detail.orderByKills:'true'"
+                data-ng-hide="$index > 2 && !detail.viewAll.classes">
+                <div class="list-icon">
+                    <img data-ng-src="{{ class.imgUrl }}" alt="{{ class.name }} Class icon">
+                </div>
+                <h4>{{ class.name }}</h4>
+                <span class="player-kpi">{{ detail.player[ class.killsAttr ] }} Kills</span>
+                <span class="player-kpi">{{ detail.player[ class.deathsAttr ] }} Deaths</span>
+                <span class="player-kpi">
+                    {{ [ detail.player[ class.killsAttr ], detail.player[ class.deathsAttr ] ] | ratio }} K/D
+                </span>
+            </li>
+        </ul>
+        <div class="view-all" data-ng-click="detail.toggleView( 'classes' );">
+            <span data-ng-hide="detail.viewAll.classes">View All</span>
+            <span data-ng-show="detail.viewAll.classes">View Less</span>
+        </div>
+    </section>
+
+    <h3>Weapon Stats</h3>
+    <section class="card">
+        <ul id="weapon-list">
+            <li>
+                <div class="list-icon"></div>
+                <h4>Weapon Name</h4>
+                <span class="player-kpi">1,500 Kills</span>
+            </li>
+            <li>
+                <div class="list-icon"></div>
+                <h4>Weapon Name</h4>
+                <span class="player-kpi">1,500 Kills</span>
+            </li>
+            <li>
+                <div class="list-icon"></div>
+                <h4>Weapon Name</h4>
+                <span class="player-kpi">1,500 Kills</span>
+            </li>
+            <li data-ng-show="detail.viewAll.weapons">
+                <div class="list-icon"></div>
+                <h4>Weapon Name</h4>
+                <span class="player-kpi">1,500 Kills</span>
+            </li>
+        </ul>
+        <div class="view-all" data-ng-click="detail.toggleView( 'weapons' );">
+            <span data-ng-hide="detail.viewAll.weapons">View All</span>
+            <span data-ng-show="detail.viewAll.weapons">View Less</span>
+        </div>
+    </section>
+</div>

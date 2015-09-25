@@ -13,7 +13,10 @@
     <ul class="leaderboard-list">
         <li class="card" data-ng-repeat="user in player.list | orderBy:player.sortValue"
             data-ng-click="player.viewPlayerDetail( user );">
-            <div class="player-icon"></div>
+            <div class="player-icon">
+                <img data-ng-src="{{ user | defaultIcon }}"
+                    alt="{{ user.NAME }} Player icon">
+            </div>
             <h2>{{ user.NAME }}</h2>
             <span class="player-kpi">KDR: {{ [ user.KILLS, user.Death ] | ratio }}</span>
             <span class="player-kpi">Points: {{ user.POINTS }}</span>

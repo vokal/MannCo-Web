@@ -4,6 +4,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:1:2280452",
         "NAME": "Shadowfax lord of horses",
+        "profile_image_url": "https://images.vokal.io/vokalvip/0a8f11018fa6920f510c689d50d12ce2-292x292",
         "POINTS": "142",
         "PLAYTIME": "92",
         "LASTONTIME": "1443030523",
@@ -237,6 +238,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:1:58410023",
         "NAME": "Dr Yan",
+        "profile_image_url": "http://images.vokal.io/vokalvip/ed8ec0d926864f9648716ccc70de868b-232x232",
         "POINTS": "246",
         "PLAYTIME": "90",
         "LASTONTIME": "1443030523",
@@ -470,6 +472,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:0:21754921",
         "NAME": "Dong Cheadle",
+        "profile_image_url": "",
         "POINTS": "74",
         "PLAYTIME": "40",
         "LASTONTIME": "1442943296",
@@ -703,6 +706,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:0:39563729",
         "NAME": "Susanoh13",
+        "profile_image_url": "http://images.vokal.io/vokalvip/d352f1af16f39b43169d30d1b3aaec50-372x372",
         "POINTS": "179",
         "PLAYTIME": "96",
         "LASTONTIME": "1443030956",
@@ -936,6 +940,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:0:98268274",
         "NAME": "McMorty",
+        "profile_image_url": "http://images.vokal.io/vokalvip/f89edb4a4ed806c54f2e933233cb2706-590x590",
         "POINTS": "513",
         "PLAYTIME": "98",
         "LASTONTIME": "1443030956",
@@ -1169,6 +1174,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:0:32345099",
         "NAME": "TUUUUUUBE",
+        "profile_image_url": "",
         "POINTS": "98",
         "PLAYTIME": "75",
         "LASTONTIME": "1443030523",
@@ -1402,6 +1408,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:0:44485701",
         "NAME": "Tuss4",
+        "profile_image_url": "http://images.vokal.io/vokalvip/6b318622e38a187d6b1f2fc077d25ff8-240x401",
         "POINTS": "121",
         "PLAYTIME": "94",
         "LASTONTIME": "1443030956",
@@ -1635,6 +1642,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:0:44696849",
         "NAME": "rawdog",
+        "profile_image_url": "http://images.vokal.io/vokalvip/f8aa38f4d4254364fb79fe18f642eaf2-386x455",
         "POINTS": "338",
         "PLAYTIME": "77",
         "LASTONTIME": "1443030589",
@@ -1868,6 +1876,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:1:102053827",
         "NAME": "Javy",
+        "profile_image_url": "",
         "POINTS": "-10",
         "PLAYTIME": "78",
         "LASTONTIME": "1443030956",
@@ -2101,6 +2110,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:0:44520182",
         "NAME": "mikehelker",
+        "profile_image_url": "",
         "POINTS": "-4",
         "PLAYTIME": "9",
         "LASTONTIME": "1442943782",
@@ -2334,6 +2344,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:0:16739494",
         "NAME": "Car Ramrod",
+        "profile_image_url": "http://images.vokal.io/vokalvip/e3d8b78b855a38f5f54916d781c5b48d-351x346",
         "POINTS": "131",
         "PLAYTIME": "49",
         "LASTONTIME": "1443030523",
@@ -2567,6 +2578,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:1:125227133",
         "NAME": "InBitsAgain",
+        "profile_image_url": "",
         "POINTS": "3",
         "PLAYTIME": "48",
         "LASTONTIME": "1443030956",
@@ -2800,6 +2812,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:0:16099731",
         "NAME": "nikolas the turrrible",
+        "profile_image_url": "",
         "POINTS": "26",
         "PLAYTIME": "42",
         "LASTONTIME": "1443030656",
@@ -3033,6 +3046,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:0:17422663",
         "NAME": "Tathanen",
+        "profile_image_url": "http://images.vokal.io/vokalvip/bd5bf2fbc7e327cdc39de47617b45e37-373x373",
         "POINTS": "100",
         "PLAYTIME": "29",
         "LASTONTIME": "1443030523",
@@ -3266,6 +3280,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:0:145586190",
         "NAME": "campbellandrewaof",
+        "profile_image_url": "",
         "POINTS": "7",
         "PLAYTIME": "20",
         "LASTONTIME": "1443030956",
@@ -3499,6 +3514,7 @@ angular.module( "mocksPlayers" )
     {
         "STEAMID": "STEAM_0:0:33415110",
         "NAME": "Merry_Edward",
+        "profile_image_url": "",
         "POINTS": "15",
         "PLAYTIME": "14",
         "LASTONTIME": "1443030956",

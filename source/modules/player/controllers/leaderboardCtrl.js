@@ -19,9 +19,9 @@ angular.module( "Player" )
             {
                 ctrl.list = data;
             },
-            function ( err )
+            function ( message )
             {
-                toastr.error( "Error while loading players", "Error " + err.status );
+                alert( message );
                 ctrl.isError = true;
             } )
             .finally( function ()
