@@ -1,7 +1,7 @@
 angular.module( "App" )
 
-.filter( "ratio", [
-    function ()
+.filter( "ratio", [ "$filter",
+    function ( $filter )
     {
         "use strict";
 
@@ -19,7 +19,7 @@ angular.module( "App" )
                 denominator = 1;
             }
 
-            return ( numerator / denominator ).toFixed( 2 );
+            return $filter( "number" )( numerator / denominator, 2 );
         };
     }
 ] );

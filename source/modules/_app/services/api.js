@@ -1,6 +1,6 @@
 angular.module( "App" )
 
-.constant( "APIRoot", "{{ APIROOT }}" )
+.constant( "APIRoot", "{{ APIROOT }}" + "/v1" )
 
 .service( "APISrvc", [ "API", "APIRoot",
     function ( API, APIRoot )
