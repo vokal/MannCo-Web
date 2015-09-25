@@ -1,6 +1,12 @@
 .player-id {
     color: @grey;
 }
+.player-icon img {
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+}
 
 .leaderboard-list li {
     height: 100px;
@@ -31,5 +37,40 @@
         color: lighten( @black, 30% );
         display: inline-block;
         min-width: 125px;
+    }
+}
+#player-detail {
+    .player-icon {
+        max-width: 200px;
+        float: left;
+    }
+}
+
+#class-list,
+#weapon-list {
+    li {
+        .cf;
+
+        border-bottom: 1px solid @grey;
+        height: 100px + @padding-l;
+        margin-bottom: @padding-l;
+        padding: @padding-l @padding-l ( @padding-l * 2 ) ( 100px + @padding-m );
+        position: relative;
+
+        .list-icon {
+            background: @grey;
+            display: block;
+            height: 100px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100px;
+
+            img {
+                display: block;
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
     }
 }

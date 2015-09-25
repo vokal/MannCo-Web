@@ -15,11 +15,6 @@ angular.module( "App", [
         "use strict";
 
         $routeProvider
-            .when( "/", {
-                templateUrl: "modules/player/templates/leaderboard.html",
-                controller: "LeaderboardCtrl",
-                controllerAs: "player"
-            } )
             .otherwise( {
                 redirectTo: "/"
             } );

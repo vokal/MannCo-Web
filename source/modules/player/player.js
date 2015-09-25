@@ -11,10 +11,15 @@ angular.module( "Player", [
         "use strict";
 
         $routeProvider
+            .when( "/", {
+                templateUrl: "modules/player/templates/leaderboard.html",
+                controller: "LeaderboardCtrl",
+                controllerAs: "player"
+            } )
             .when( "/player/:id", {
                 templateUrl: "modules/player/templates/detail.html",
                 controller: "PlayerDetailCtrl",
-                controllerAs: "player"
+                controllerAs: "detail"
             } );
     }
 ] );

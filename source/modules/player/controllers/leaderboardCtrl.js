@@ -21,7 +21,6 @@ angular.module( "Player" )
             },
             function ( err )
             {
-                toastr.error( "Error while loading players", "Error " + err.status );
                 ctrl.isError = true;
             } )
             .finally( function ()
