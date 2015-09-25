@@ -19,9 +19,9 @@
             </div>
             <h2>{{ user.NAME }}</h2>
             <span class="player-kpi">KDR: {{ [ user.KILLS, user.Death ] | ratio }}</span>
-            <span class="player-kpi">Points: {{ user.POINTS }}</span>
-            <span class="player-kpi">Kills: {{ user.KILLS }}</span>
-            <span class="player-kpi">Deaths: {{ user.Death }}</span>
+            <span class="player-kpi">Points: {{ user.POINTS | number }}</span>
+            <span class="player-kpi">Kills: {{ user.KILLS | number }}</span>
+            <span class="player-kpi">Deaths: {{ user.Death | number }}</span>
 
             <div class="player-rank">{{ $index + 1 }}</div>
         </li>

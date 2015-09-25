@@ -33,7 +33,6 @@ angular.module( "Player" )
         APISrvc.$get( "/players" )
             .then( function ( res )
             {
-                console.log( "data", res.data );
                 [ "POINTS", "KILLS", "Death" ].forEach( function ( key )
                 {
                     res.data.results.forEach( function ( player )
