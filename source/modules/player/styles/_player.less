@@ -1,3 +1,35 @@
 .player-id {
     color: @grey;
 }
+
+.leaderboard-list li {
+    height: 100px;
+    padding: @padding-l ( 100px + @padding-l );
+
+    .player-icon,
+    .player-rank {
+        background: @grey;
+        bottom: 0;
+        display: block;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 100px;
+    }
+    .player-icon {
+        left: 0;
+    }
+    .player-rank {
+        font-family: "tf2", Helvetica, sans-serif;
+        font-size: @font-size-xxl;
+        line-height: 100px - ( 2 * @padding-l );
+        padding: @padding-l;
+        right: 0;
+    }
+
+    .player-kpi {
+        color: lighten( @black, 30% );
+        display: inline-block;
+        min-width: 125px;
+    }
+}

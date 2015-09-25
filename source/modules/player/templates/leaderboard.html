@@ -4,22 +4,23 @@
     <br>
     <div>
         <select id="sort-select" data-ng-model="player.sortValue">
-            <option value="-POINTS">Points</option>
-            <option value="-KILLS">Kills</option>
-            <option value="-Death">Deaths</option>
+            <option value="-POINTS">Most Points</option>
+            <option value="-KILLS">Most Kills</option>
+            <option value="Death">Fewest Deaths</option>
         </select>
     </div>
     <br>
-    <strong data-ng-show="player.sortValue === '-POINTS'">Points</strong>
-    <strong data-ng-show="player.sortValue === '-KILLS'">Kills</strong>
-    <strong data-ng-show="player.sortValue === '-Death'">Deaths</strong>
-    <br>
-    <ul>
-        <li class="card" data-ng-repeat="user in player.list | orderBy:player.sortValue ">
-            <span data-ng-show="player.sortValue === '-POINTS'">{{ user.POINTS }}:</span>
-            <span data-ng-show="player.sortValue === '-KILLS'">{{ user.KILLS }}:</span>
-            <span data-ng-show="player.sortValue === '-Death'">{{ user.Death }}:</span>
-            {{ user.NAME }}
+    <ul class="leaderboard-list">
+        <li class="card" data-ng-repeat="user in player.list | orderBy:player.sortValue"
+            data-ng-click="player.viewPlayerDetail( user );">
+            <div class="player-icon"></div>
+            <h2>{{ user.NAME }}</h2>
+            <span class="player-kpi">KDR: {{ [ user.KILLS, user.Death ] | ratio }}</span>
+            <span class="player-kpi">Points: {{ user.POINTS }}</span>
+            <span class="player-kpi">Kills: {{ user.KILLS }}</span>
+            <span class="player-kpi">Deaths: {{ user.Death }}</span>
+
+            <div class="player-rank">{{ $index + 1 }}</div>
         </li>
     </ul>
 </div>
