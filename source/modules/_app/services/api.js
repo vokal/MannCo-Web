@@ -8,7 +8,7 @@ angular.module( "App" )
         "use strict";
 
         return new API( {
-            rootPath: APIRoot + "/v1",
+            rootPath: APIRoot,
             transformHumps: false
         } );
     }

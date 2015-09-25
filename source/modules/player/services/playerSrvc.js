@@ -33,9 +33,10 @@ angular.module( "Player" )
         APISrvc.$get( "/players" )
             .then( function ( res )
             {
+                console.log( "data", res.data );
                 [ "POINTS", "KILLS", "Death" ].forEach( function ( key )
                 {
-                    res.data.forEach( function ( player )
+                    res.data.results.forEach( function ( player )
                     {
                         player[ key ] = Number( player[ key ] );
                     } );
@@ -43,14 +44,14 @@ angular.module( "Player" )
 
                 ClassMap.forEach( function ( cls )
                 {
-                    res.data.forEach( function ( player )
+                    res.data.results.forEach( function ( player )
                     {
                         player[ cls.killsAttr ] = Number( player[ cls.killsAttr ] );
                         player[ cls.deathsAttr ] = Number( player[ cls.deathsAttr ] );
                     } );
                 } );
 
-                playerList.resolve( res.data );
+                playerList.resolve( res.data.results );
             }, function ( err )
             {
                 playerList.reject( "Could not retrieve list: " + err.status );
