@@ -26,3 +26,13 @@
     padding: @padding-l;
     position: relative;
 }
+.desktop-only {
+    @media screen and ( min-width: 1080px ) {
+        display: none;
+    }
+}
+.tv-only {
+    @media screen and ( max-width: 1080px ) {
+        display: none;
+    }
+}

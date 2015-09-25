@@ -1,15 +1,13 @@
 <div class="column-wrap">
-    <h3>Leaderboard</h3>
-
-    <br>
-    <div>
+    <div class="desktop-only">
+        <h3>Leaderboard</h3>
+        <br>
         <select id="sort-select" data-ng-model="player.sortValue">
             <option value="-POINTS">Most Points</option>
             <option value="-KILLS">Most Kills</option>
             <option value="Death">Fewest Deaths</option>
         </select>
     </div>
-    <br>
     <ul class="leaderboard-list">
         <li class="card" data-ng-repeat="user in player.list | orderBy:player.sortValue"
             data-ng-click="player.viewPlayerDetail( user );">

@@ -1,7 +1,9 @@
 <div class="column-wrap">
-    <h2>{{ detail.player.NAME }}</h2>
-    <span>{{ detail.player.STEAMID }}</span>
-    <br>
+    <h2>
+        <span class="tv-only"><a href="/">Leaderboards</a> &gt; </span>
+        {{ detail.player.NAME }}
+    </h2>
+
     <section id="player-detail" class="card">
         <div class="player-icon">
             <img data-ng-src="{{ detail.player | defaultIcon:'200' }}"
