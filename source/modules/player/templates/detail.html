@@ -31,10 +31,13 @@
                 </span>
             </li>
         </ul>
-        <div class="view-all" data-ng-click="detail.toggleView( 'classes' );">
-            <span data-ng-hide="detail.viewAll.classes">View All</span>
-            <span data-ng-show="detail.viewAll.classes">View Less</span>
-        </div>
+        <p>
+            <a class="view-all" data-ng-click="detail.toggleView( 'classes' );">
+                <span data-ng-hide="detail.viewAll.classes">View All</span>
+                <span data-ng-show="detail.viewAll.classes">View Less</span>
+            </a>
+        </p>
+
     </section>
 
     <h3>Weapon Stats</h3>
@@ -49,9 +52,12 @@
                 <span class="player-kpi">{{ detail.player[ weapon.killsAttr ] | number }} Kills</span>
             </li>
         </ul>
-        <div class="view-all" data-ng-click="detail.toggleView( 'weapons' );">
-            <span data-ng-hide="detail.viewAll.weapons">View All</span>
-            <span data-ng-show="detail.viewAll.weapons">View Less</span>
-        </div>
+        <p>
+            <a class="view-all" data-ng-click="detail.toggleView( 'weapons' );">
+                <span data-ng-hide="detail.viewAll.weapons">View All</span>
+                <span data-ng-show="detail.viewAll.weapons">View Less</span>
+            </a>
+        </p>
+
     </section>
 </div>
