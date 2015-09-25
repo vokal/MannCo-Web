@@ -4,7 +4,7 @@ module.exports = function ( grunt )
 
     grunt.registerTask( "envLocal", "Set environment variables for local development", function ()
     {
-        grunt.config( "APIRoot", "https://tf2stats.vokal.io/" );
+        grunt.config( "APIRoot", "https://tf2stats.vokal.io" );
     } );
 
     grunt.registerTask( "envProd", "Set environment variables for production deployment", function ()

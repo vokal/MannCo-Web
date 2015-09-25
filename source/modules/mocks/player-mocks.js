@@ -5,8 +5,8 @@ angular.module( "mocksPlayers", [ "ngMockE2E" ] )
     {
         "use strict";
 
-        var apiRoot = APIRoot + "/v1/players";
+        var apiRoot = APIRoot + "/players";
 
-        $httpBackend.whenRoute( "GET", apiRoot ).respond( PlayerList );
+        $httpBackend.whenRoute( "GET", apiRoot ).respond( { results: PlayerList } );
     }
 ] );
