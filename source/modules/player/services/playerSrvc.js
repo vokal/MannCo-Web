@@ -1,7 +1,7 @@
 angular.module( "Player" )
 
-.service( "PlayerSrvc", [ "APISrvc", "$q", "ClassMap", "WeaponMap",
-    function ( APISrvc, $q, ClassMap, WeaponMap )
+.service( "PlayerSrvc", [ "APISrvc", "$q", "ClassMap", "WeaponMap", "DestructionAttrs", "TauntAttrs",
+    function ( APISrvc, $q, ClassMap, WeaponMap, DestructionAttrs, TauntAttrs )
     {
         "use strict";
 
@@ -35,7 +35,17 @@ angular.module( "Player" )
             {
                 res.data.results.forEach( function ( player )
                 {
-                    [ "POINTS", "KILLS", "Death" ].forEach( function ( key )
+                    [
+                        "POINTS",
+                        "KILLS",
+                        "Death",
+                        "KillAssist",
+                        "HeadshotKill",
+                        "K_backstab",
+                        "Domination",
+                        "Revenge",
+                        "PLAYTIME"
+                    ].forEach( function ( key )
                     {
                         player[ key ] = Number( player[ key ] );
                     } );
@@ -47,6 +57,14 @@ angular.module( "Player" )
                     WeaponMap.forEach( function ( weapon )
                     {
                         player[ weapon.killsAttr ] = Number( player[ weapon.killsAttr ] );
+                    } );
+                    DestructionAttrs.forEach( function ( building )
+                    {
+                        player[ building ] = Number( player[ building ] );
+                    } );
+                    TauntAttrs.forEach( function ( taunt )
+                    {
+                        player[ taunt ] = Number( player[ taunt ] );
                     } );
                 } );
 

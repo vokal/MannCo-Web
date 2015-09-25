@@ -9,10 +9,19 @@
             <img data-ng-src="{{ detail.player | defaultIcon:'200' }}"
                 alt="{{ detail.player.NAME }} Player icon">
         </div>
-        <span class="player-kpi">KDR: {{ [ detail.player.KILLS, detail.player.Death ] | ratio }}</span>
+        <span class="player-kpi">K/D: {{ [ detail.player.KILLS, detail.player.Death ] | ratio }}</span>
         <span class="player-kpi">Points: {{ detail.player.POINTS | number }}</span>
         <span class="player-kpi">Kills: {{ detail.player.KILLS | number }}</span>
         <span class="player-kpi">Deaths: {{ detail.player.Death | number }}</span>
+        <span class="player-kpi">Buildings Destroyed: {{ detail.destructionKills() | number }}</span>
+        <span class="player-kpi">Taunt Kills: {{ detail.tauntKills() | number }}</span>
+        <span class="player-kpi">Assists: {{ detail.player.KillAssist | number }}</span>
+        <span class="player-kpi">Headshots: {{ detail.player.HeadshotKill | number }}</span>
+        <span class="player-kpi">Backstabs: {{ detail.player.K_backstab | number }}</span>
+        <span class="player-kpi">Dominations: {{ detail.player.Domination | number }}</span>
+        <span class="player-kpi">Revenges: {{ detail.player.Revenge | number }}</span>
+        <span class="player-kpi">Play Time: {{ detail.player.PLAYTIME | number }} minutes</span>
+
     </section>
 
     <h3>Class Stats</h3>
