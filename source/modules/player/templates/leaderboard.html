@@ -15,10 +15,10 @@
             data-ng-click="player.viewPlayerDetail( user );">
             <div class="player-icon"></div>
             <h2>{{ user.NAME }}</h2>
-            <span>KDR: {{ [ user.KILLS, user.Death ] | ratio }}</span>
-            <span>Points: {{ user.POINTS }}</span>
-            <span>Kills: {{ user.KILLS }}</span>
-            <span>Deaths: {{ user.Death }}</span>
+            <span class="player-kpi">KDR: {{ [ user.KILLS, user.Death ] | ratio }}</span>
+            <span class="player-kpi">Points: {{ user.POINTS }}</span>
+            <span class="player-kpi">Kills: {{ user.KILLS }}</span>
+            <span class="player-kpi">Deaths: {{ user.Death }}</span>
 
             <div class="player-rank">{{ $index + 1 }}</div>
         </li>
