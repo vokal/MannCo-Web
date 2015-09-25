@@ -27,8 +27,8 @@
     }
     .player-rank {
         font-family: "tf2", Helvetica, sans-serif;
-        font-size: @font-size-xxl;
-        line-height: 100px - ( 2 * @padding-l );
+        font-size: ( 100px / 2 ) - @padding-s;
+        line-height: 100px - ( 2 * @padding-l ) + 10px; // 10px is for font baseline appearance
         padding: @padding-l;
         right: 0;
     }
@@ -58,19 +58,27 @@
         position: relative;
 
         .list-icon {
-            background: @grey;
             display: block;
             height: 100px;
             left: 0;
+            line-height: 100px;
             position: absolute;
+            text-align: center;
             top: 0;
             width: 100px;
 
             img {
-                display: block;
+                display: inline-block;
+                margin: 0 auto;
                 max-width: 100%;
                 max-height: 100%;
+                vertical-align: middle;
             }
         }
     }
+}
+#weapon-list li .list-icon {
+    background: @grey;
+    line-height: 100px - ( 2 * @padding-m );
+    padding: @padding-m;
 }

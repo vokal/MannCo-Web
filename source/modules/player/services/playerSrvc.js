@@ -1,7 +1,7 @@
 angular.module( "Player" )
 
-.service( "PlayerSrvc", [ "APISrvc", "$q", "ClassMap",
-    function ( APISrvc, $q, ClassMap )
+.service( "PlayerSrvc", [ "APISrvc", "$q", "ClassMap", "WeaponMap",
+    function ( APISrvc, $q, ClassMap, WeaponMap )
     {
         "use strict";
 
@@ -33,20 +33,20 @@ angular.module( "Player" )
         APISrvc.$get( "/players" )
             .then( function ( res )
             {
-                [ "POINTS", "KILLS", "Death" ].forEach( function ( key )
+                res.data.results.forEach( function ( player )
                 {
-                    res.data.results.forEach( function ( player )
+                    [ "POINTS", "KILLS", "Death" ].forEach( function ( key )
                     {
                         player[ key ] = Number( player[ key ] );
                     } );
-                } );
-
-                ClassMap.forEach( function ( cls )
-                {
-                    res.data.results.forEach( function ( player )
+                    ClassMap.forEach( function ( cls )
                     {
                         player[ cls.killsAttr ] = Number( player[ cls.killsAttr ] );
                         player[ cls.deathsAttr ] = Number( player[ cls.deathsAttr ] );
+                    } );
+                    WeaponMap.forEach( function ( weapon )
+                    {
+                        player[ weapon.killsAttr ] = Number( player[ weapon.killsAttr ] );
                     } );
                 } );
 

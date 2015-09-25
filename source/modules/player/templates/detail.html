@@ -40,25 +40,13 @@
     <h3>Weapon Stats</h3>
     <section class="card">
         <ul id="weapon-list">
-            <li>
-                <div class="list-icon"></div>
-                <h4>Weapon Name</h4>
-                <span class="player-kpi">1,500 Kills</span>
-            </li>
-            <li>
-                <div class="list-icon"></div>
-                <h4>Weapon Name</h4>
-                <span class="player-kpi">1,500 Kills</span>
-            </li>
-            <li>
-                <div class="list-icon"></div>
-                <h4>Weapon Name</h4>
-                <span class="player-kpi">1,500 Kills</span>
-            </li>
-            <li data-ng-show="detail.viewAll.weapons">
-                <div class="list-icon"></div>
-                <h4>Weapon Name</h4>
-                <span class="player-kpi">1,500 Kills</span>
+            <li data-ng-repeat="weapon in detail.weaponMap | orderBy:detail.orderByKills:'true' | filter:detail.atLeastOneKill"
+                data-ng-hide="$index > 2 && !detail.viewAll.weapons">
+                <div class="list-icon">
+                    <img data-ng-src="{{ weapon.iconUrl }}" alt="{{ weapon.name }} Weapon icon">
+                </div>
+                <h4>{{ weapon.name }}</h4>
+                <span class="player-kpi">{{ detail.player[ weapon.killsAttr ] | number }} Kills</span>
             </li>
         </ul>
         <div class="view-all" data-ng-click="detail.toggleView( 'weapons' );">
