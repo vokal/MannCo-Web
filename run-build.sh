@@ -4,7 +4,7 @@ node server &
 PIDS[0]=$!
 sleep 2
 
-npm run teststack
+# npm run teststack
 
 RESULT=$?
 
@@ -23,4 +23,3 @@ do
 done
 
 exit $RESULT
-
