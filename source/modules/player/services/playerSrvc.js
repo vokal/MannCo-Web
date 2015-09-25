@@ -24,7 +24,7 @@ angular.module( "Player" )
                         break;
                     }
                 }
-                deferred.reject( {} );
+                deferred.reject( "Cannot find Player by Steam ID: " + steamId );
                 return list;
             } );
             return deferred.promise;
@@ -53,8 +53,7 @@ angular.module( "Player" )
                 playerList.resolve( res.data );
             }, function ( err )
             {
-                alert( "Could not retrieve list: " + err.status );
-                playerList.reject( [] );
+                playerList.reject( "Could not retrieve list: " + err.status );
             } );
 
         return this;

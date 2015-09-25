@@ -28,9 +28,9 @@ angular.module( "Player" )
             .then( function ( player )
             {
                 ctrl.player = player;
-            }, function ()
+            }, function ( message )
             {
-                alert( "Could not retrieve specified player by ID: " + $routeParams.id );
+                alert( message );
                 ctrl.isError = true;
             } )
             .finally( function ()

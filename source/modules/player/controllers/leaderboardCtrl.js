@@ -19,8 +19,9 @@ angular.module( "Player" )
             {
                 ctrl.list = data;
             },
-            function ( err )
+            function ( message )
             {
+                alert( message );
                 ctrl.isError = true;
             } )
             .finally( function ()
