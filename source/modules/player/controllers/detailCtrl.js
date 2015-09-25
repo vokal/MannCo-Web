@@ -1,7 +1,7 @@
 angular.module( "Player" )
 
-.controller( "PlayerDetailCtrl", [ "$routeParams", "PlayerSrvc", "ClassMap",
-    function ( $routeParams, PlayerSrvc, ClassMap )
+.controller( "PlayerDetailCtrl", [ "$routeParams", "PlayerSrvc", "ClassMap", "WeaponMap",
+    function ( $routeParams, PlayerSrvc, ClassMap, WeaponMap )
     {
         "use strict";
 
@@ -9,6 +9,7 @@ angular.module( "Player" )
 
         ctrl.player = {};
         ctrl.classMap = ClassMap;
+        ctrl.weaponMap = WeaponMap;
         ctrl.viewAll = {
             weapons: false,
             classes: false
@@ -18,9 +19,13 @@ angular.module( "Player" )
         {
             ctrl.viewAll[ key ] = !ctrl.viewAll[ key ];
         };
-        ctrl.orderByKills = function ( cls )
+        ctrl.orderByKills = function ( obj )
         {
-            return ctrl.player[ cls.killsAttr ];
+            return ctrl.player[ obj.killsAttr ];
+        };
+        ctrl.atLeastOneKill = function ( obj )
+        {
+            return ctrl.player[ obj.killsAttr ] > 0;
         };
 
         ctrl.isLoading = true;
