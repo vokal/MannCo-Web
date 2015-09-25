@@ -5,14 +5,19 @@
     color: @white;
     height: ( 2 * @padding-l ) + 40px;
 
+    #nav-logo,
     nav li {
         float: left;
         height: ( 2 * @padding-l ) + 40px;
         margin-right: @padding-xl;
+    }
+
+    nav li {
         padding: @padding-l 0;
 
         a {
             display: block;
+            font-size: @font-size-l;
             line-height: 40px;
             padding: 0 @padding-m;
 
@@ -21,5 +26,10 @@
                 text-shadow: 1px 1px 2px rgba( 0, 0, 0, .25 );
             }
         }
+    }
+    #nav-logo {
+        background: url( "/build/images/logo_hi_res.png" ) center center no-repeat transparent;
+        background-size: contain;
+        width: ( 2 * @padding-l ) + 40px;
     }
 }

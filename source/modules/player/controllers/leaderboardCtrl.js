@@ -1,12 +1,17 @@
 angular.module( "Player" )
 
-.controller( "LeaderboardCtrl", [ "PlayerSrvc",
-    function ( PlayerSrvc )
+.controller( "LeaderboardCtrl", [ "PlayerSrvc", "$location",
+    function ( PlayerSrvc, $location )
     {
         "use strict";
 
         var ctrl = this;
         ctrl.sortValue = "-POINTS";
+
+        ctrl.viewPlayerDetail = function ( user )
+        {
+            $location.url( "/player/" + user.STEAMID );
+        };
 
         ctrl.isLoading = true;
         PlayerSrvc.getAll()
