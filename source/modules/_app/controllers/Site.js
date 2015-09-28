@@ -9,5 +9,11 @@ angular.module( "App" )
 
         var ctrl = this;
         ctrl.world = "World";
+        ctrl.theme = "light";
+
+        ctrl.toggleTheme = function ( selectedTheme )
+        {
+            ctrl.theme = selectedTheme;
+        };
     }
 ] );

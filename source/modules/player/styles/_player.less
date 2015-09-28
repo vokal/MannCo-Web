@@ -8,9 +8,16 @@
     max-width: 100%;
 }
 
+.dark .leaderboard-list li {
+    border: 1px solid @grey;
+    background-color: @dark-text;
+}
+
 .leaderboard-list li {
     height: 100px;
     padding: @padding-l ( 100px + @padding-l );
+    border-radius: 5px;
+    overflow: hidden;
 
     .player-icon,
     .player-rank {
@@ -24,6 +31,8 @@
     }
     .player-icon {
         left: 0;
+        border-radius: 5px 0 0 5px;
+        overflow: hidden;
     }
     .player-rank {
         font-family: "tf2", Helvetica, sans-serif;
@@ -31,6 +40,7 @@
         line-height: 100px - ( 2 * @padding-l ) + 10px; // 10px is for font baseline appearance
         padding: @padding-l;
         right: 0;
+        border-radius: 0 5px 5px 0;
     }
 
     .player-kpi {

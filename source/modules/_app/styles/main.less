@@ -27,3 +27,39 @@ body {
 main {
     padding: @padding-l;
 }
+
+//theme stuff
+body {
+    background-color: @light-bkg;
+    color: @light-text;
+    
+    &.dark {
+        background-color: @dark-bkg;
+    }
+}
+.theme {
+    position: absolute;
+    z-index: 20;
+    right: 20px;
+    top: 12px;
+    width: 60px;
+    
+    .theme-light {
+        background-color: @light-bkg;
+        color: @light-text;
+    }
+    .theme-dark {
+        background-color: @dark-bkg;
+        color: @dark-text;
+    }
+    a {
+        display: block;
+        margin-bottom: 4px;
+        padding: 5px 0px;
+        border-radius: 4px;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+    }
+}
