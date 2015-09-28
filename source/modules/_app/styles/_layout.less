@@ -21,10 +21,16 @@
 
     background: @white;
     box-shadow: ( @padding-xs / 2 ) ( @padding-xs / 2 ) @padding-xs rgba( 0, 0, 0, .125 );
+    color: @light-contrast;
     display: block;
     margin-bottom: @padding-l;
     padding: @padding-l;
     position: relative;
+
+    .dark & {
+        background: @dark-contrast;
+        color: @dark-bkg;
+    }
 }
 .desktop-only {
     @media screen and ( min-width: 1280px ) {

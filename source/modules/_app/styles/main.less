@@ -16,10 +16,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background: @background;
-}
-
 [data-ng-click] {
     cursor: pointer;
 }
@@ -30,11 +26,12 @@ main {
 
 //theme stuff
 body {
-    background-color: @light-bkg;
+    background: @light-bkg;
     color: @light-contrast;
-    
+
     &.dark {
         background-color: @dark-bkg;
+        color: @dark-contrast;
     }
 }
 .theme {
