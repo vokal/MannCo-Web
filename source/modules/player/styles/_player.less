@@ -21,10 +21,17 @@
 }
 
 .leaderboard-list li {
-    height: 100px;
-    padding: @padding-l ( 100px + @padding-l );
     border-radius: 5px;
+    height: 100px;
     overflow: hidden;
+    padding: @padding-l ( 100px + @padding-l );
+
+    &.card.ng-move {
+        animation: .75s moving-up;
+    }
+    &.ng-move + li {
+        animation: .75s moving-down;
+    }
 
     .player-icon,
     .player-rank {
