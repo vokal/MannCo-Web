@@ -1,6 +1,7 @@
 /* Application Styles */
 @import "source/modules/_app/styles/_variables";
 @import "source/modules/_app/styles/_fonts";
+@import "source/modules/player/styles/_animations";
 @import (inline) "source/components/css-reset/reset.css";
 
 @import "source/modules/_app/styles/_layout";
@@ -16,10 +17,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background: @background;
-}
-
 [data-ng-click] {
     cursor: pointer;
 }
@@ -30,12 +27,12 @@ main {
 
 //theme stuff
 body {
-    background-color: @light-bkg;
+    background: @light-bkg;
     color: @light-contrast;
-    
+
     &.dark {
         background-color: @dark-bkg;
-        color: @light-contrast;
+        color: @dark-contrast;
     }
 }
 .theme {
@@ -44,7 +41,7 @@ body {
     right: 20px;
     top: 12px;
     width: 60px;
-    
+
     .theme-light {
         background-color: @light-bkg;
         color: @light-contrast;
