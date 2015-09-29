@@ -8,9 +8,30 @@
     max-width: 100%;
 }
 
+.dark .leaderboard-list li {
+    border: 1px solid @grey;
+
+    .player-icon {
+        left: -1px;
+    }
+    .player-rank {
+        background: @red;
+        color: @dark-contrast;
+    }
+}
+
 .leaderboard-list li {
+    border-radius: 5px;
     height: 100px;
+    overflow: hidden;
     padding: @padding-l ( 100px + @padding-l );
+
+    &.card.ng-move {
+        animation: .75s moving-up;
+    }
+    &.ng-move + li {
+        animation: .75s moving-down;
+    }
 
     .player-icon,
     .player-rank {
@@ -23,9 +44,14 @@
         width: 100px;
     }
     .player-icon {
+        border-radius: 4px 0 0 4px;
         left: 0;
+        overflow: hidden;
     }
     .player-rank {
+        background: @blue;
+        border-radius: 0 4px 4px 0;
+        color: @white;
         font-family: "tf2", Helvetica, sans-serif;
         font-size: ( 100px / 2 ) - @padding-s;
         line-height: 100px - ( 2 * @padding-l ) + 10px; // 10px is for font baseline appearance

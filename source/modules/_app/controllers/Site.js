@@ -8,6 +8,11 @@ angular.module( "App" )
         "use strict";
 
         var ctrl = this;
-        ctrl.world = "World";
+        ctrl.theme = "light";
+
+        ctrl.toggleTheme = function ( selectedTheme )
+        {
+            ctrl.theme = selectedTheme;
+        };
     }
 ] );
