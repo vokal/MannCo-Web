@@ -9,7 +9,7 @@
             </select>
         </h3>
     </div>
-    
+
     <ul class="leaderboard-list">
         <li class="card" data-ng-repeat="user in player.list | orderBy:player.sortValue"
             data-ng-click="player.viewPlayerDetail( user );">
@@ -17,11 +17,27 @@
                 <img data-ng-src="{{ user | defaultIcon }}"
                     alt="{{ user.NAME }} Player icon">
             </div>
-            <h2>{{ user.NAME }}</h2>
-            <span class="player-kpi">KDR: {{ [ user.KILLS, user.Death ] | ratio }}</span>
-            <span class="player-kpi">Points: {{ user.POINTS | number }}</span>
-            <span class="player-kpi">Kills: {{ user.KILLS | number }}</span>
-            <span class="player-kpi">Deaths: {{ user.Death | number }}</span>
+            <h2 class="player-name">{{ user.NAME }}</h2>
+            <ul class="player-kpis">
+                <li class="player-kpi"
+                    data-ng-hide="player.sortValue !== '-POINTS'"
+                    data-ng-class="{ 'active': player.sortValue === '-POINTS' }">
+                    {{ user.POINTS | number }}pts
+                </li>
+                <li class="player-kpi"
+                    data-ng-hide="player.sortValue !== '-KILLS'"
+                    data-ng-class="{ 'active': player.sortValue !== '-POINTS' }">
+                    {{ user.KILLS | number }} kills
+                </li>
+                <li class="player-kpi"
+                    data-ng-hide="player.sortValue !== 'Death'"
+                    data-ng-class="{ 'active': player.sortValue !== '-POINTS' }">
+                    {{ user.Death | number }} deaths
+                </li>
+                <li class="player-kpi">
+                    {{ [ user.KILLS, user.Death ] | ratio }} k/d
+                </li>
+            </ul>
 
             <div class="player-rank">{{ $index + 1 }}</div>
         </li>
