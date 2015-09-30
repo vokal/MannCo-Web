@@ -8,7 +8,7 @@
     max-width: 100%;
 }
 
-.dark .leaderboard-list li {
+.dark .leaderboard-list > li {
     border: 1px solid @grey;
 
     .player-icon {
@@ -20,9 +20,10 @@
     }
 }
 
-.leaderboard-list li {
+.leaderboard-list > li {
     border-radius: 5px;
     height: 100px;
+    line-height: 100px - ( @padding-l * 2 );
     overflow: hidden;
     padding: @padding-l ( 100px + @padding-l );
 
@@ -59,10 +60,22 @@
         right: 0;
     }
 
+    .player-name {
+        float: left;
+        font-size: ( 100px / 2 ) - @padding-l;
+    }
+    .player-kpis {
+        float: right;
+    }
     .player-kpi {
         color: lighten( @black, 30% );
         display: inline-block;
         min-width: 125px;
+
+        &.active {
+            float: right;
+            font-size: @font-size-xl;
+        }
     }
 }
 #player-detail {
