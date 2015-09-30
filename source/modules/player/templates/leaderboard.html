@@ -11,8 +11,8 @@
     </div>
 
     <ul class="leaderboard-list">
-        <li class="card" data-ng-repeat="user in player.list | orderBy:player.sortValue"
-            data-ng-click="player.viewPlayerDetail( user );">
+        <li class="card" data-ng-click="player.viewPlayerDetail( user );"
+            data-ng-repeat="user in player.list | orderBy:player.sortValue | filter:player.filterTimePlayed">
             <div class="player-icon">
                 <img data-ng-src="{{ user | defaultIcon }}"
                     alt="{{ user.NAME }} Player icon">

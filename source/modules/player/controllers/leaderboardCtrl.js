@@ -12,6 +12,10 @@ angular.module( "Player" )
         {
             $location.url( "/player/" + user.STEAMID );
         };
+        ctrl.filterTimePlayed = function ( player )
+        {
+            return player.PLAYTIME > 9 && player.KILLS > 4;
+        };
 
         ctrl.isLoading = true;
         PlayerSrvc.getAll()
