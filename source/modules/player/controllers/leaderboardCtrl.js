@@ -43,6 +43,25 @@ angular.module( "Player" )
                 },
                 descending: true,
                 kpi:   function ( player ) { return $filter( "ratio" )( [ player.KILLS, player.Death ] ); }
+            },
+            {
+                title: "Deaths",
+                sort: "Death",
+                kpi:  function ( player ) { return player.Death; }
+            },
+            {
+                title: "Assists",
+                sort: "-KillAssist",
+                kpi:  function ( player ) { return player.KillAssist; }
+            },
+            {
+                title: "DPM",
+                sort:  function ( player )
+                {
+                    return Number( $filter( "ratio" )( [ player.Death, player.PLAYTIME ] ) );
+                },
+                descending: true,
+                kpi:   function ( player ) { return $filter( "ratio" )( [ player.Death, player.PLAYTIME ] ); }
             }
         ];
 
