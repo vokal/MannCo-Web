@@ -10,6 +10,7 @@
 
 /* -- Modules */
 @import "source/modules/_app/styles/_navigation";
+@import "source/modules/player/styles/_leaderboard";
 @import "source/modules/player/styles/_player";
 
 
@@ -35,29 +36,42 @@ body {
         color: @dark-contrast;
     }
 }
-.theme {
-    position: absolute;
-    z-index: 20;
-    right: 20px;
-    top: 12px;
-    width: 60px;
+.theme-light,
+.theme-dark {
+    border-radius: 5px;
+    display: inline-block;
+    font-size: @font-size-m;
+    margin: -( @padding-xs ) 0;
+    padding: @padding-xs @padding-s;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.theme-light {
+    background-color: @light-bkg;
+    color: @light-contrast;
+}
+.theme-dark {
+    background-color: @dark-bkg;
+    color: @dark-contrast;
+}
 
-    .theme-light {
-        background-color: @light-bkg;
-        color: @light-contrast;
+[gear-svg] {
+    background: transparent;
+    display: inline-block;
+    height: ( @rank-square / 2 );
+    overflow: hidden;
+    padding: @padding-s;
+    width: ( @rank-square / 2 );
+
+    svg { fill: @red; }
+    &:hover {
+        svg { fill: @red-alt; }    
     }
-    .theme-dark {
-        background-color: @dark-bkg;
-        color: @dark-contrast;
-    }
-    a {
-        display: block;
-        margin-bottom: 4px;
-        padding: 5px 0px;
-        border-radius: 4px;
-        white-space: nowrap;
-        text-align: center;
-        font-size: 16px;
-        cursor: pointer;
+
+    .dark & {
+        svg { fill: @blue; }
+        &:hover {
+            svg { fill: @blue-alt; }
+        }
     }
 }

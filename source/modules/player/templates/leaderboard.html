@@ -1,45 +1,48 @@
-<div class="column-wrap">
-    <div class="desktop-only">
-        <h3>
-            Leaderboard
-            <select id="sort-select" data-ng-model="player.sortValue">
-                <option value="-POINTS">Most Points</option>
-                <option value="-KILLS">Most Kills</option>
-                <option value="Death">Fewest Deaths</option>
-            </select>
-        </h3>
-    </div>
-
-    <ul class="leaderboard-list">
-        <li class="card" data-ng-click="player.viewPlayerDetail( user );"
-            data-ng-repeat="user in player.list | orderBy:player.sortValue | filter:player.filterTimePlayed">
-            <div class="player-icon">
-                <img data-ng-src="{{ user | defaultIcon }}"
-                    alt="{{ user.NAME }} Player icon">
+<div>
+    <section class="tv-wrap leaderboard-headers">
+        <div class="leaderboard-col left">
+            <h2>{{ player.leftSort.title }}</h2>
+        </div>
+        <div class="leaderboard-center">
+            <div class="leaderboard-settings">
+                <div class="gear" gear-svg data-ng-click="isSettingsOpen = !isSettingsOpen"></div>
+                <ul class="card dropdown" data-ng-show="isSettingsOpen" data-ng-click="isSettingsOpen = !isSettingsOpen">
+                    <li data-ng-click="player.setSort( 0, 1 );">Totals</li>
+                    <li data-ng-click="player.setSort( 2, 3 );">Per Minute</li>
+                    <li data-ng-click="player.setSort( 1, 4 );">Kills</li>
+                    <li data-ng-hide="site.theme == 'light'"
+                        data-ng-click="site.toggleTheme( 'light' )">
+                        Theme <span class="theme-light">light</span>
+                    </li>
+                    <li data-ng-hide="site.theme == 'dark'"
+                        data-ng-click="site.toggleTheme( 'dark' )">
+                        Theme <span class="theme-dark">dark</span>
+                    </li>
+                </ul>
             </div>
-            <h2 class="player-name">{{ user.NAME }}</h2>
-            <ul class="player-kpis">
-                <li class="player-kpi"
-                    data-ng-hide="player.sortValue !== '-POINTS'"
-                    data-ng-class="{ 'active': player.sortValue === '-POINTS' }">
-                    {{ user.POINTS | number }}pts
-                </li>
-                <li class="player-kpi"
-                    data-ng-hide="player.sortValue !== '-KILLS'"
-                    data-ng-class="{ 'active': player.sortValue !== '-POINTS' }">
-                    {{ user.KILLS | number }} kills
-                </li>
-                <li class="player-kpi"
-                    data-ng-hide="player.sortValue !== 'Death'"
-                    data-ng-class="{ 'active': player.sortValue !== '-POINTS' }">
-                    {{ user.Death | number }} deaths
-                </li>
-                <li class="player-kpi">
-                    {{ [ user.KILLS, user.Death ] | ratio }} k/d
-                </li>
-            </ul>
+        </div>
+        <div class="leaderboard-col right">
+            <h2>{{  player.rightSort.title }}</h2>
+        </div>
+    </section>
 
-            <div class="player-rank">{{ $index + 1 }}</div>
-        </li>
-    </ul>
+    <section class="tv-wrap">
+        <ul class="leaderboard-col left leaderboard-list">
+            <li leaderboard-card="user" kpi="player.leftSort.kpi( user )"
+                data-ng-click="player.viewPlayerDetail( user );"
+                data-ng-repeat="user in player.list | orderBy:player.leftSort.sort:player.leftSort.descending | playerMins">
+            </li>
+        </ul>
+        <ul class="leaderboard-center rank-list">
+            <li class="card" data-ng-repeat="user in player.list | playerMins">
+                {{ $index + 1 }}
+            </li>
+        </ul>
+        <ul class="leaderboard-col right leaderboard-list">
+            <li leaderboard-card="user" kpi="player.rightSort.kpi( user )"
+                data-ng-click="player.viewPlayerDetail( user );"
+                data-ng-repeat="user in player.list | orderBy:player.rightSort.sort:player.rightSort.descending | playerMins">
+            </li>
+        </ul>
+    </section>
 </div>

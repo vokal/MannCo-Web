@@ -1,20 +1,75 @@
 angular.module( "Player" )
 
-.controller( "LeaderboardCtrl", [ "PlayerSrvc", "$location",
-    function ( PlayerSrvc, $location )
+.controller( "LeaderboardCtrl", [ "PlayerSrvc", "$location", "$filter", "$routeParams",
+    function ( PlayerSrvc, $location, $filter, $routeParams )
     {
         "use strict";
 
         var ctrl = this;
-        ctrl.sortValue = "-POINTS";
+        var sortSets = [
+            {
+                title: "Points",
+                sort:  "-POINTS",
+                kpi:   function ( player ) { return player.POINTS; }
+            },
+            {
+                title: "Kills",
+                sort:  "-KILLS",
+                kpi:   function ( player ) { return player.KILLS; }
+            },
+            {
+                title: "PPM",
+                sort:  function ( player )
+                {
+                    return Number( $filter( "ratio" )( [ player.POINTS, player.PLAYTIME ] ) );
+                },
+                descending: true,
+                kpi:   function ( player ) { return $filter( "ratio" )( [ player.POINTS, player.PLAYTIME ] ); }
+            },
+            {
+                title: "KPM",
+                sort:  function ( player )
+                {
+                    return Number( $filter( "ratio" )( [ player.KILLS, player.PLAYTIME ] ) );
+                },
+                descending: true,
+                kpi:   function ( player ) { return $filter( "ratio" )( [ player.KILLS, player.PLAYTIME ] ); }
+            },
+            {
+                title: "K/D",
+                sort:  function ( player )
+                {
+                    return Number( $filter( "ratio" )( [ player.KILLS, player.Death ] ) );
+                },
+                descending: true,
+                kpi:   function ( player ) { return $filter( "ratio" )( [ player.KILLS, player.Death ] ); }
+            }
+        ];
+
+        var startingSort = [ 0, 1 ];
+        if( $routeParams.sort )
+        {
+            $routeParams.sort.split( "," ).forEach( function ( sortSet, index )
+            {
+                sortSet = Number( sortSet );
+                if( Number.isInteger( sortSet ) )
+                {
+                    startingSort[ index ] = sortSet;
+                }
+            } );
+        }
+        ctrl.leftSort = sortSets[ startingSort[ 0 ] ];
+        ctrl.rightSort = sortSets[ startingSort[ 1 ] ];
+
+        ctrl.setSort = function ( col1, col2 )
+        {
+            ctrl.leftSort = sortSets[ col1 ];
+            ctrl.rightSort = sortSets[ col2 ];
+        };
 
         ctrl.viewPlayerDetail = function ( user )
         {
             $location.url( "/player/" + user.STEAMID );
-        };
-        ctrl.filterTimePlayed = function ( player )
-        {
-            return player.PLAYTIME > 9 && player.KILLS > 4;
         };
 
         ctrl.isLoading = true;

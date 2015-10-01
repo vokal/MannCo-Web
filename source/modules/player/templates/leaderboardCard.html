@@ -1,0 +1,8 @@
+<li class="card">
+    <div class="player-icon">
+        <img data-ng-src="{{ user | defaultIcon }}"
+            alt="{{ user.NAME }} Player icon">
+    </div>
+    <h2 class="player-name">{{ user.NAME }}</h2>
+    <div class="player-kpi">{{ kpi() }}</div>
+</li>
