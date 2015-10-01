@@ -71,9 +71,9 @@ angular.module( "Player" )
             $routeParams.sort.split( "," ).forEach( function ( sortSet, index )
             {
                 sortSet = Number( sortSet );
-                if( Number.isInteger( sortSet ) )
+                if( !isNaN( sortSet ) && sortSet >= 0 && sortSet < sortSets.length )
                 {
-                    startingSort[ index ] = sortSet;
+                    startingSort[ index ] = Math.floor( sortSet );
                 }
             } );
         }
