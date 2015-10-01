@@ -2,13 +2,16 @@
 
 angular.module( "App" )
 
-.controller( "Site", [
-    function ()
+.controller( "Site", [ "$location",
+    function ( $location )
     {
         "use strict";
 
         var ctrl = this;
-        ctrl.theme = "light";
+        var themes = [ "light", "dark" ];
+
+        ctrl.theme = themes.indexOf( $location.search().theme ) >= 0 ?
+            $location.search().theme : themes[ 0 ];
 
         ctrl.toggleTheme = function ( selectedTheme )
         {
