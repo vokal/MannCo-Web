@@ -1,0 +1,128 @@
+.leaderboard-col {
+    float: left;
+    width: 50%;
+
+    &.left {
+        padding-right: ( @rank-square / 2 ) + @padding-l;
+    }
+    &.right {
+        padding-left: ( @rank-square / 2 ) + @padding-l;
+    }
+}
+.leaderboard-center {
+    left: 50%;
+    margin-left: -( @rank-square / 2 );
+    position: absolute;
+    top: 0;
+    width: @rank-square;
+}
+
+.leaderboard-settings {
+    position: relative;
+    text-align: center;
+
+    .dropdown {
+        padding: 0;
+
+        li {
+            padding: @padding-m @padding-s;
+
+            &:hover {
+                background:  @red-alt;
+
+                .dark & {
+                    background:@blue-alt;
+                }
+            }
+        }
+    }
+}
+
+.leaderboard-headers {
+    margin-bottom: @padding-l;
+
+    .leaderboard-col {
+        text-align: center;
+    }
+}
+
+.leaderboard-list {
+
+    .card {
+        border-radius: 5px;
+        height: @rank-square;
+        line-height: @rank-square - ( @padding-s * 2 );
+        overflow: hidden;
+        padding: @padding-s ( @rank-square + @padding-l );
+    }
+    .player-name {
+        display: inline-block;
+        font-size: ( @rank-square / 2 ) - @padding-l;
+        line-height: ( @rank-square / 2 ) - @padding-l;
+        margin: 0;
+        vertical-align: middle;
+    }
+    .player-icon,
+    .player-kpi {
+        background: @grey;
+        bottom: 0;
+        display: block;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 100px;
+    }
+    .player-icon {
+        border-radius: 5px 0 0 5px;
+        left: 0;
+        overflow: hidden;
+    }
+    .player-kpi {
+        font-size: @font-size-xxl;
+        line-height: @rank-square - ( 2 * @padding-s );
+        padding: @padding-s;
+        right: 0;
+    }
+
+    li.ng-move {
+        animation: .75s moving-up;
+    }
+    li.ng-move + li {
+        animation: .75s moving-down;
+    }
+
+    &.right {
+
+        .card {
+            text-align: right;
+        }
+        .player-icon {
+            border-radius: 0 5px 5px 0;
+            left: auto;
+            right: 0;
+        }
+        .player-kpi {
+            left: 0;
+            right: auto;
+        }
+    }
+}
+.rank-list {
+
+    .card {
+        background: @blue;
+        border: 0;
+        color: @white;
+        height: @rank-square;
+        padding: @padding-l;
+        font-family: "tf2", Helvetica, sans-serif;
+        font-size: ( @rank-square / 2 );
+        line-height: @rank-square - ( 2 * @padding-l ) + 10px;
+        text-align: center;
+
+        .dark & {
+            background: @red;
+            color: @dark-contrast;
+        }
+    }
+}

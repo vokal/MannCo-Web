@@ -14,13 +14,8 @@
         <base href="/">
     </head>
 
-    <body data-ng-class="{ 'dark': site.theme == 'dark'}">
+    <body data-ng-class="{ 'dark': site.theme == 'dark' }">
         <header id="page-header" data-ng-include="'modules/_app/templates/navigation-bar.html'"></header>
-        
-        <div class="theme">
-            <a data-ng-click="site.toggleTheme( 'light' )" class="theme-light">light</a>
-            <a data-ng-click="site.toggleTheme( 'dark' )" class="theme-dark">dark</a>
-        </div>
 
         <main data-ng-view></main>
 
