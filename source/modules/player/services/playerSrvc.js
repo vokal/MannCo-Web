@@ -72,7 +72,7 @@ angular.module( "Player" )
                         pollPlayers();
                     } );
 
-            }, ( 5 * 1000 ) );
+            }, ( 15 * 1000 ) );
         }
         function insertPlayerStats( player )
         {

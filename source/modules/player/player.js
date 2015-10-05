@@ -16,6 +16,11 @@ angular.module( "Player", [
                 controller: "LeaderboardCtrl",
                 controllerAs: "player"
             } )
+            .when( "/daily", {
+                templateUrl: "modules/player/templates/daily.html",
+                controller: "DailyCtrl",
+                controllerAs: "player"
+            } )
             .when( "/player/:id", {
                 templateUrl: "modules/player/templates/detail.html",
                 controller: "PlayerDetailCtrl",
