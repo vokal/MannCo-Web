@@ -1,7 +1,8 @@
 angular.module( "Player" )
 
-.controller( "DailyCtrl", [ "PlayerSrvc", "DailySrvc", "$location", "$filter", "$routeParams", "$q",
-    function ( PlayerSrvc, DailySrvc, $location, $filter, $routeParams, $q )
+.controller( "DailyCtrl",
+    [ "$scope", "PlayerSrvc", "DailySrvc", "$location", "$filter", "$routeParams", "$q", "$timeout",
+    function ( $scope, PlayerSrvc, DailySrvc, $location, $filter, $routeParams, $q, $timeout )
     {
         "use strict";
 
@@ -72,27 +73,20 @@ angular.module( "Player" )
 
         ctrl.byDaily = function ( daily )
         {
-            return playerList[ indexBySteamId( daily.STEAMID ) ];
-        };
-
-        function indexBySteamId( id )
-        {
             for( var i = 0; i < playerList.length; i++ )
             {
-
-                if( playerList[ i ].STEAMID === id )
+                if( playerList[ i ].STEAMID === daily.STEAMID )
                 {
-                    return i;
+                    return playerList[ i ];
                 }
             }
             return null;
-        }
+        };
 
         ctrl.isLoading = true;
-        $q.all( [ PlayerSrvc.getAll(), DailySrvc.getAll() ] )
+        $q.all( [ PlayerSrvc.getAll(), DailySrvc.getAll( $routeParams.days ) ] )
             .then( function ( responses )
             {
-                console.log( responses );
                 playerList = responses[ 0 ];
                 ctrl.list = responses[ 1 ];
             }, function ( message )
@@ -103,6 +97,48 @@ angular.module( "Player" )
             .finally( function ()
             {
                 ctrl.isLoading = false;
+                poll = pollDaily();
             } );
+
+        var poll;
+        function pollDaily()
+        {
+            return $timeout( function ()
+            {
+                DailySrvc.getAll( $routeParams.days )
+                    .then( function ( res )
+                    {
+                        angular.forEach( res, insertDailyStats );
+                    }, function ()
+                    {
+                        //fail silently
+                    } )
+                    .finally( function ()
+                    {
+                        poll = pollDaily();
+                    } );
+            }, ( 5 * 1000 ) );
+        }
+
+        function insertDailyStats( player )
+        {
+            for( var i = 0; i < ctrl.list.length; i++ )
+            {
+                if( String( ctrl.list[ i ].STEAMID ) === player.STEAMID )
+                {
+                    angular.merge( ctrl.list[ i ], player );
+                    return;
+                }
+            }
+            if( player.STEAMID )
+            {
+                ctrl.list.push( player );
+            }
+        }
+
+        $scope.$on( "$destroy", function ()
+        {
+            $timeout.cancel( poll );
+        } );
     }
 ] );
