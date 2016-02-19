@@ -8,6 +8,7 @@ build:
 deploy:
     script:
         image: vokal/drone-web-deployment
+        environment:
+            - DOCKER_LAUNCH_DEBUG=true
         commands:
-            - npm install
             - grunt deployprod --aws-access-key-id=$$awsAccessKey --aws-secret-access-key=$$awsSecretKey --gitver=$(git rev-parse --short HEAD)
