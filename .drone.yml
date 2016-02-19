@@ -9,4 +9,5 @@ deploy:
     script:
         image: vokal/drone-web-deployment
         commands:
+            - npm install
             - grunt deployprod --aws-access-key-id=$$awsAccessKey --aws-secret-access-key=$$awsSecretKey --gitver=$(git rev-parse --short HEAD)
