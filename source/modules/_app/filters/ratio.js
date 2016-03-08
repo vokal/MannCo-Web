@@ -1,10 +1,8 @@
-angular.module( "App" )
+"use strict";
 
-.filter( "ratio", [ "$filter",
+module.exports = [ "$filter",
     function ( $filter )
     {
-        "use strict";
-
         return function ( arr )
         {
             if( !angular.isArray( arr ) || arr.length < 2 )
@@ -22,4 +20,4 @@ angular.module( "App" )
             return $filter( "number" )( numerator / denominator, 2 );
         };
     }
-] );
+];

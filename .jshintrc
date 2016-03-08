@@ -48,9 +48,10 @@
         "FB": false,
         "google": false,
         "it": false,
-        "xit": false,
+        "jasmine": false,
         "module": false,
         "moment": false,
+        "protractor": false,
         "require": false,
         "segment": false,
         "toastr": false

@@ -1,17 +1,18 @@
-/* Application Styles */
-@import "source/modules/_app/styles/_variables";
-@import "source/modules/_app/styles/_fonts";
-@import "source/modules/player/styles/_animations";
-@import (inline) "source/components/css-reset/reset.css";
+@charset "utf-8";
 
-@import "source/modules/_app/styles/_layout";
-@import "source/modules/_app/styles/_typography";
-@import "source/modules/_app/styles/_inputs";
+@nodeModules: "../../../../node_modules";
+@import (inline) "@{nodeModules}/css-reset/reset.css";
 
-/* -- Modules */
-@import "source/modules/_app/styles/_navigation";
-@import "source/modules/player/styles/_leaderboard";
-@import "source/modules/player/styles/_player";
+@import "_variables";
+@import "_fonts";
+@import "_layout";
+@import "_typography";
+@import "_inputs";
+
+@import "_navigation";
+@import "../../player/styles/_animations";
+@import "../../player/styles/_leaderboard";
+@import "../../player/styles/_player";
 
 
 * {
@@ -65,7 +66,7 @@ body {
 
     svg { fill: @red; }
     &:hover {
-        svg { fill: @red-alt; }    
+        svg { fill: @red-alt; }
     }
 
     .dark & {

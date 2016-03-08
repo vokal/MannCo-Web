@@ -1,6 +1,6 @@
-angular.module( "mocksPlayers" )
+"use strict";
 
-.value( "PlayerList", [
+module.exports = [
     {
         "STEAMID": "STEAM_0:1:2280452",
         "NAME": "Shadowfax lord of horses",
@@ -3745,4 +3745,4 @@ angular.module( "mocksPlayers" )
         "guillotine": "0",
         "recorder": "0"
     }
-] );
+];

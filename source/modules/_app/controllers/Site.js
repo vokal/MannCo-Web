@@ -1,12 +1,8 @@
-/* Site controller */
+"use strict";
 
-angular.module( "App" )
-
-.controller( "Site", [ "$location",
+module.exports = [ "$location",
     function ( $location )
     {
-        "use strict";
-
         var ctrl = this;
         var themes = [ "light", "dark" ];
 
@@ -18,4 +14,4 @@ angular.module( "App" )
             ctrl.theme = selectedTheme;
         };
     }
-] );
+];

@@ -1,10 +1,8 @@
-angular.module( "Player" )
+"use strict";
 
-.service( "PlayerSrvc", [ "APISrvc", "$q", "$timeout", "ClassMap", "WeaponMap", "DestructionAttrs", "TauntAttrs",
+module.exports = [ "APISrvc", "$q", "$timeout", "ClassMap", "WeaponMap", "DestructionAttrs", "TauntAttrs",
     function ( APISrvc, $q, $timeout, ClassMap, WeaponMap, DestructionAttrs, TauntAttrs )
     {
-        "use strict";
-
         var playerList = [];
         var playerPromise = $q.defer();
 
@@ -126,4 +124,4 @@ angular.module( "Player" )
 
         return this;
     }
-] );
+];

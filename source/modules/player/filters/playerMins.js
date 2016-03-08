@@ -1,10 +1,8 @@
-angular.module( "Player" )
+"use strict";
 
-.filter( "playerMins", [
+module.exports = [
     function ()
     {
-        "use strict";
-
         return function ( playerList )
         {
             if( !angular.isArray( playerList ) )
@@ -23,4 +21,4 @@ angular.module( "Player" )
             return players;
         };
     }
-] );
+];
