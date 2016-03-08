@@ -18,7 +18,7 @@ angular.module( "App", [
 ] )
 
 .constant( "APIRoot", "<< apiroot >>" + "/v1" )
-.controller( "Site", require( "./controllers/site" ) )
+.controller( "Site", require( "./controllers/site.js" ) )
 .directive( "gearSvg", require( "./directives/gearSvg" ) )
 .filter( "ratio", require( "./filters/ratio" ) )
 .service( "APISrvc", require( "./services/api" ) );
