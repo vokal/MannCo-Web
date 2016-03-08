@@ -1,4 +1,4 @@
-/* Application module */
+"use strict";
 
 angular.module( "Player", [
     "ngRoute",
@@ -8,8 +8,6 @@ angular.module( "Player", [
 .config( [ "$routeProvider",
     function ( $routeProvider )
     {
-        "use strict";
-
         $routeProvider
             .when( "/", {
                 templateUrl: "modules/player/templates/leaderboard.html",
@@ -41,6 +39,20 @@ angular.module( "Player", [
                 controllerAs: "detail"
             } );
     }
-] );
+] )
+
+.controller( "DailyCtrl", require( "./controllers/daily" ) )
+.controller( "PlayerDetailCtrl", require( "./controllers/detail" ) )
+.controller( "LeaderboardCtrl", require( "./controllers/leaderboard" ) )
+.directive( "leaderboardCard", require( "./directives/leaderboardCard" ) )
+.filter( "defaultIcon", require( "./filters/defaultIcon" ) )
+.filter( "playerMins", require( "./filters/playerMins" ) )
+.service( "DailySrvc", require( "./services/daily" ) )
+.service( "PlayerSrvc", require( "./services/player" ) )
+
+.value( "ClassMap", require( "./values/classMap" ) )
+.value( "DestructionAttrs", require( "./values/destructionAttrs" ) )
+.value( "TauntAttrs", require( "./values/tauntAttrs" ) )
+.value( "WeaponMap", require( "./values/weaponMap" ) );
 
 angular.module( "App" ).requires.push( "Player" );

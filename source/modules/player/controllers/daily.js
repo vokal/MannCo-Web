@@ -1,11 +1,8 @@
-angular.module( "Player" )
+"use strict";
 
-.controller( "DailyCtrl",
-    [ "$scope", "PlayerSrvc", "DailySrvc", "$location", "$filter", "$routeParams", "$q", "$timeout",
+module.exports = [ "$scope", "PlayerSrvc", "DailySrvc", "$location", "$filter", "$routeParams", "$q", "$timeout",
     function ( $scope, PlayerSrvc, DailySrvc, $location, $filter, $routeParams, $q, $timeout )
     {
-        "use strict";
-
         var ctrl = this;
         var playerList = [];
         var sortSets = [
@@ -141,4 +138,4 @@ angular.module( "Player" )
             $timeout.cancel( poll );
         } );
     }
-] );
+];

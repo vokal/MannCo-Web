@@ -1,7 +1,7 @@
-*.log
 /node_modules
-/source/components
 /build
 /coverage
+/.instrumented
+*.log
 test-results.xml
 deploy.txt

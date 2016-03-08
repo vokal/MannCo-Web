@@ -1,15 +1,11 @@
-angular.module( "App" )
+"use strict";
 
-.constant( "APIRoot", "{{ APIROOT }}" + "/v1" )
-
-.service( "APISrvc", [ "API", "APIRoot",
+module.exports = [ "API", "APIRoot",
     function ( API, APIRoot )
     {
-        "use strict";
-
         return new API( {
             rootPath: APIRoot,
             transformHumps: false
         } );
     }
-] );
+];

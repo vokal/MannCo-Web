@@ -1,12 +1,10 @@
-angular.module( "App" )
+"use strict";
 
-.directive( "gearSvg", [
+module.exports = [
     function ()
     {
-        "use strict";
-
         return {
-            templateUrl: "/build/images/gear.svg"
+            templateUrl: "/images/gear.svg"
         };
     }
-] );
+];

@@ -1,11 +1,9 @@
-angular.module( "Player" )
+"use strict";
 
-.controller( "PlayerDetailCtrl", [
+module.exports = [
     "$routeParams", "PlayerSrvc", "ClassMap", "WeaponMap", "DestructionAttrs", "TauntAttrs",
     function ( $routeParams, PlayerSrvc, ClassMap, WeaponMap, DestructionAttrs, TauntAttrs )
     {
-        "use strict";
-
         var ctrl = this;
 
         ctrl.player = {};
@@ -58,4 +56,4 @@ angular.module( "Player" )
                 ctrl.isLoading = false;
             } );
     }
-] );
+];

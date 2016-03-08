@@ -1,10 +1,8 @@
-angular.module( "Player" )
+"use strict";
 
-.filter( "defaultIcon", [ "ClassMap", "$filter",
+module.exports = [ "ClassMap", "$filter",
     function ( ClassMap, $filter )
     {
-        "use strict";
-
         return function ( player, size )
         {
             if( player.profile_image_url )
@@ -21,4 +19,4 @@ angular.module( "Player" )
             } ), "kills", true )[ 0 ].imgUrl;
         };
     }
-] );
+];

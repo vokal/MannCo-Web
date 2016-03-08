@@ -1,10 +1,8 @@
-angular.module( "Player" )
+"use strict";
 
-.service( "DailySrvc", [ "APISrvc",
+module.exports = [ "APISrvc",
     function ( APISrvc )
     {
-        "use strict";
-
         var dailyKeys = [ "kills", "deaths", "dominations", "dominated", "revenges" ];
         this.getAll = function ( days )
         {
@@ -34,4 +32,4 @@ angular.module( "Player" )
 
         return this;
     }
-] );
+];

@@ -1,10 +1,8 @@
-angular.module( "Player" )
+"use strict";
 
-.directive( "leaderboardCard", [
+module.exports = [
     function ()
     {
-        "use strict";
-
         return {
             replace: true,
             templateUrl: "modules/player/templates/leaderboardCard.html",
@@ -14,4 +12,4 @@ angular.module( "Player" )
             }
         };
     }
-] );
+];

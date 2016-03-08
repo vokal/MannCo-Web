@@ -1,22 +1,23 @@
+"use strict";
+
 module.exports = function ( grunt )
 {
-    "use strict";
-
     var path = require( "path" );
+    var env = grunt.option( "env" ) || "local";
+
+    grunt.initConfig( {
+        env: grunt.file.readJSON( "env.json" )[ env ],
+        envName: env,
+        version: grunt.option( "gitver" ) || Date.now(), // for deployment
+        slackApiToken: grunt.option( "slacktoken" )
+    } );
 
     require( "load-grunt-config" )( grunt, {
-        data: {
-            version: grunt.option( "gitver" ) || Date.now(),
-            configPath: path.join( process.cwd(), "node_modules", "dominatr-grunt", "grunt" ),
-            overridePath: path.join( process.cwd(), "grunt" ),
-            mergeFunction: function ( obj, ext )
-            {
-                return require( "config-extend" )( obj, ext );
-            },
-            aws: {
-                accessKeyId: grunt.option( "aws-access-key-id" ),
-                secretAccessKey: grunt.option( "aws-secret-access-key" )
-            }
+        configPath: path.join( process.cwd(), "node_modules", "dominatr-grunt", "grunt" ),
+        overridePath: path.join( process.cwd(), "grunt" ),
+        mergeFunction: function ( obj, ext )
+        {
+            return require( "config-extend" )( obj, ext );
         }
     } );
 };

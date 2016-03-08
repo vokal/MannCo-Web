@@ -1,10 +1,8 @@
-angular.module( "mocksPlayers", [ "ngMockE2E" ] )
+"use strict";
 
-.run( [ "$httpBackend", "APIRoot", "PlayerList", "$timeout",
+module.exports = [ "$httpBackend", "APIRoot", "PlayerList", "$timeout",
     function ( $httpBackend, APIRoot, PlayerList, $timeout )
     {
-        "use strict";
-
         var apiRoot = APIRoot + "/players";
 
         $httpBackend.whenRoute( "GET", apiRoot ).respond( { results: PlayerList } );
@@ -24,4 +22,4 @@ angular.module( "mocksPlayers", [ "ngMockE2E" ] )
         }
         delayIncrementKills();
     }
-] );
+];

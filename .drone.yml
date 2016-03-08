@@ -1,14 +1,15 @@
 build:
     image: registry.vokal.io/web
+    environment:
+        - REPO_OWNER=vokal
+        - REPO_NAME=mannco-web
     commands:
-        - npm install
-        - bower --allow-root install
-        - chmod +x run-build.sh
-        - ./run-build.sh
+        - npm i --silent
+        # - chmod +x run-build.sh
+        # - ./run-build.sh
 deploy:
     script:
         image: vokal/drone-web-deployment
-        environment:
-            - DOCKER_LAUNCH_DEBUG=true
         commands:
-            - grunt deployprod --aws-access-key-id=$$awsAccessKey --aws-secret-access-key=$$awsSecretKey --gitver=$(git rev-parse --short HEAD)
+            - deploy --env=prod --aws-access-key-id=$$awsAccessKey --aws-secret-access-key=$$awsSecretKey --gitver=$$COMMIT
+            - notification_slack --env=dev --gitver=$$COMMIT --slacktoken=$$slackToken

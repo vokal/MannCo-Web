@@ -1,10 +1,8 @@
-angular.module( "Player" )
+"use strict";
 
-.controller( "LeaderboardCtrl", [ "PlayerSrvc", "$location", "$filter", "$routeParams",
+module.exports = [ "PlayerSrvc", "$location", "$filter", "$routeParams",
     function ( PlayerSrvc, $location, $filter, $routeParams )
     {
-        "use strict";
-
         var ctrl = this;
         var sortSets = [
             {
@@ -107,4 +105,4 @@ angular.module( "Player" )
                 ctrl.isLoading = false;
             } );
     }
-] );
+];

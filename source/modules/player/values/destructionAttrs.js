@@ -1,9 +1,9 @@
-angular.module( "Player" )
+"use strict";
 
-.value( "DestructionAttrs", [
+module.exports = [
     "KOSentrygun",
     "KOSapper",
     "KODispenser",
     "KOTeleporterExit",
     "KOTeleporterEntrace"
-] );
+];
