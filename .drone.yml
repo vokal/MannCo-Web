@@ -12,4 +12,4 @@ deploy:
         image: vokal/drone-web-deployment
         commands:
             - deploy --env=prod --aws-access-key-id=$$awsAccessKey --aws-secret-access-key=$$awsSecretKey --gitver=$$COMMIT
-            - notification_slack --env=dev --gitver=$$COMMIT --slacktoken=$$slackToken
+            - notification_slack --env=prod --gitver=$$COMMIT --slacktoken=$$slackToken
